@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Emergency Priority</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    background: #0b1736;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    color: #ff6262;
+}
+
+.box {
+    background: #172952;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+select, input {
+    width: 85%;
+    padding: 12px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+}
+
+button {
+    padding: 14px 25px;
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.run {
+    background: #ff6262;
+    color: white;
+}
+
+.back {
+    background: #4da3ff;
+    color: white;
+}
+
+#result {
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🚑 Emergency Priority</h1>
+
+<p>AI provides priority for emergency vehicles</p>
+
+<div class="box">
+
+    <select id="vehicle">
+        <option>Ambulance</option>
+        <option>Fire Truck</option>
+        <option>Police Vehicle</option>
+    </select>
+
+    <input
+        id="destination"
+        placeholder="Enter Destination">
+
+    <br>
+
+    <button class="run" onclick="givePriority()">
+        🚨 Give Emergency Priority
+    </button>
+
+    <div id="result">
+        Waiting for AI decision...
+    </div>
+
+</div>
+
+<button class="back"
+onclick="location.href='suggestions.html'">
+← Back to Suggestions
+</button>
+
+<script>
+
+function givePriority() {
+
+    let vehicle =
+        document.getElementById("vehicle").value;
+
+    let destination =
+        document.getElementById("destination").value;
+
+    let signal =
+        Math.floor(Math.random() * 5) + 1;
+
+    document.getElementById("result").innerHTML =
+
+        "🚑 Emergency Vehicle: " +
+        vehicle +
+
+        "<br>📍 Destination: " +
+        destination +
+
+        "<br>🚦 Priority Signal: Junction " +
+        signal +
+
+        "<br><br>🟢 AI Decision: Give GREEN priority" +
+
+        "<br>🚨 Emergency route is being cleared" +
+
+        "<br><br>✅ Emergency priority activated.";
+}
+
+</script>
+
+<script src="sound.js"></script>
+<script src="language.js"></script>
+
+<div id="google_translate_element"
+     style="display:none;"></div>
+
+<script>
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+
+        pageLanguage: 'en',
+
+        included
