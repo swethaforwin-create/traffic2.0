@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Traffic AI Dashboard</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    background: #0b1736;
+    color: white;
+    text-align: center;
+    padding: 35px;
+}
+
+h1 {
+    color: #35d07f;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+}
+
+.card {
+    background: #172952;
+    width: 180px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.number {
+    font-size: 30px;
+    color: #ffd75e;
+    font-weight: bold;
+}
+
+/* GRAPH */
+
+.graph {
+    background: #172952;
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.bar-box {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.bar {
+    height: 30px;
+    background: #35d07f;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+button {
+    padding: 14px 25px;
+    margin: 15px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.refresh {
+    background: #35d07f;
+}
+
+.back {
+    background: #4da3ff;
+    color: white;
+}
+
+#status {
+    background: #172952;
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📊 Traffic AI Dashboard</h1>
+
+<p>Real-Time AI Traffic Monitoring</p>
+
+
+<div class="dashboard">
+
+    <div class="card">
+        <h3>🚗 Vehicles</h3>
+        <div class="number" id="vehicles">
+            --
+        </div>
+    </div>
+
+
+    <div class="card">
+        <h3>🚦 Signals</h3>
+        <div class="number" id="signals">
+            --
+        </div>
+    </div>
+
+
+    <div class="card">
+        <h3>🤖 AI Agents</h3>
+        <div class="number">
+            4
+        </div>
+    </div>
+
+
+    <div class="card">
+        <h3>🚨 Emergency</h3>
+        <div class="number" id="emergency">
+            0
+        </div>
+    </div>
+
+</div>
+
+
+<!-- GRAPH -->
+
+<div class="graph">
+
+    <h2>📈 Traffic Level</h2>
+
+    <div class="bar-box">
+        Junction 1
+        <div class="bar" id="bar1"
+             style="width: 40%;">
+        </div>
+    </div>
+
+
+    <div class="bar-box">
+        Junction 2
+        <div class="bar" id="bar2"
+             style="width: 60%;">
+        </div>
+    </div>
+
+
+    <div class="bar-box">
+        Junction 3
+        <div class="bar" id="bar3"
+             style="width: 30%;">
+        </div>
+    </div>
+
+
+    <div class="bar-box">
+        Junction 4
+        <div class="bar" id="bar4"
+             style="width: 75%;">
+        </div>
+    </div>
+
+</div>
+
+
+<div id="status">
+
+    🤖 AI Status:
+    <b>Monitoring Traffic...</b>
+
+</div>
+
+
+<button class="refresh"
+onclick="updateDashboard()">
+
+    🔄 Update Traffic
+
+</button>
+
+
+<button class="back"
+onclick="location.href='suggestions.html'">
+
+    ← Back to Suggestions
+
+</button>
+
+
+<script>
+
+function updateDashboard() {
+
+    let j1 =
+        Math.floor(Math.random() * 80) + 20;
+
+    let j2 =
+        Math.floor(Math.random() * 80) + 20;
+
+    let j3 =
+        Math.floor(Math.random() * 80) + 20;
+
+    let j4 =
+        Math.floor(Math.random() * 80) + 20;
+
+
+    let total =
+        j1 + j2 + j3 + j4;
+
+
+    document.getElementById("vehicles")
+        .innerText = total;
+
+
+    document.getElementById("signals")
+        .innerText = 4;
+
+
+    document.getElementById("bar1")
+        .style.width = j1 + "%";
+
+    document.getElementById("bar2")
+        .style.width = j2 + "%";
+
+    document.getElementById("bar3")
+        .style.width = j3 + "%";
+
+    document.getElementById("bar4")
+        .style.width = j4 + "%";
+
+
+    let highest =
+        Math.max(j1, j2, j3, j4);
+
+    let junction =
+        [j1, j2, j3, j4]
+        .indexOf(highest) + 1;
+
+
+    document.getElementById("status")
+        .innerHTML =
+
+        "🤖 AI Status: " +
+
+        "<b>Junction " +
+        junction +
+        " has highest traffic.</b><br><br>" +
+
+        "🚦 AI is optimizing signal timing.";
+
+}
+
+</script>
+
+
+<!-- SOUND -->
+
+<script src="sound.js"></script>
+
+
+<!-- LANGUAGE -->
+
+<script src="language.js"></script>
+
+
+<div id="google_translate_element"
+     style="display:none;">
+</div>
+
+
+<script>
+
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+
+        pageLanguage: 'en',
+
+        includedLanguages:
+        'en,ta,hi,mr,te,ml,kn',
+
+        autoDisplay: false
+
+    }, 'google_translate_element');
+
+}
+
+</script>
+
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+
+</body>
+</html>
