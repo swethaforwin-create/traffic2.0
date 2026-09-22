@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Agent Coordination</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    background: #0b1736;
+    color: white;
+    text-align: center;
+    padding: 35px;
+}
+
+h1 {
+    color: #35d07f;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    background: #172952;
+    width: 180px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.number {
+    font-size: 28px;
+    color: #ffd75e;
+    font-weight: bold;
+}
+
+button {
+    padding: 14px 25px;
+    margin: 25px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.run {
+    background: #35d07f;
+}
+
+.back {
+    background: #4da3ff;
+    color: white;
+}
+
+#result {
+    background: #172952;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    line-height: 1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🤖 AI Agent Coordination</h1>
+
+<p>Autonomous agents communicate and coordinate traffic</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🚦 Junction 1</h2>
+        <p>Traffic</p>
+        <div class="number" id="j1">--</div>
+    </div>
+
+    <div class="card">
+        <h2>🚦 Junction 2</h2>
+        <p>Traffic</p>
+        <div class="number" id="j2">--</div>
+    </div>
+
+    <div class="card">
+        <h2>🚦 Junction 3</h2>
+        <p>Traffic</p>
+        <div class="number" id="j3">--</div>
+    </div>
+
+    <div class="card">
+        <h2>🚦 Junction 4</h2>
+        <p>Traffic</p>
+        <div class="number" id="j4">--</div>
+    </div>
+
+</div>
+
+<button class="run" id="runButton">
+    🤖 Run AI Coordination
+</button>
+
+<div id="result">
+    Waiting for AI agents...
+</div>
+
+<button class="back"
+id="backButton">
+    ← Back to Suggestions
+</button>
+
+<script>
+
+document.getElementById("runButton")
+.addEventListener("click", function() {
+
+    let j1 = Math.floor(Math.random() * 80) + 20;
+    let j2 = Math.floor(Math.random() * 80) + 20;
+    let j3 = Math.floor(Math.random() * 80) + 20;
+    let j4 = Math.floor(Math.random() * 80) + 20;
+
+    document.getElementById("j1").innerText =
+        j1 + " vehicles";
+
+    document.getElementById("j2").innerText =
+        j2 + " vehicles";
+
+    document.getElementById("j3").innerText =
+        j3 + " vehicles";
+
+    document.getElementById("j4").innerText =
+        j4 + " vehicles";
+
+
+    let traffic = [j1, j2, j3, j4];
+
+    let highest = Math.max(...traffic);
+
+    let junction =
+        traffic.indexOf(highest) + 1;
+
+
+    document.getElementById("result").innerHTML =
+
+        "📡 <b>Agent Communication</b><br><br>" +
+
+        "Agent 1 → Traffic data detected<br>" +
+
+        "Agent 2 → Traffic flow analyzed<br>" +
+
+        "Agent 3 → Congestion identified<br>" +
+
+        "Agent 4 → Coordination decision made<br><br>" +
+
+        "🔴 Highest Traffic: Junction " +
+        junction +
+
+        "<br>🚦 AI Decision: Give more GREEN time to Junction " +
+        junction +
+
+        "<br><br>✅ All agents coordinated successfully.";
+
+});
+
+
+document.getElementById("backButton")
+.addEventListener("click", function() {
+
+    window.location.href =
+        "suggestions.html";
+
+});
+
+</script>
+
+<script src="sound.js"></script>
+<script src="language.js"></script>
+
+<div id="google_translate_element"
+     style="display:none;"></div>
+
+<script>
+function googleTranslateElementInit() {
+
+    new google.translate.TranslateElement({
+
+        pageLanguage: 'en',
+
+        includedLanguages:
+        'en,ta,hi,mr,te,ml,kn',
+
+        autoDisplay: false
+
+    }, 'google_translate_element');
+
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+</body>
+</html>
