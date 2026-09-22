@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Simulation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #0b1736;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #35d07f;
+        }
+
+        .box {
+            background: #172952;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 12px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            padding: 14px 25px;
+            margin: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .start {
+            background: #35d07f;
+        }
+
+        .back {
+            background: #4da3ff;
+            color: white;
+        }
+
+        #result {
+            margin-top: 20px;
+            background: #0b1736;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🚦 Traffic Simulation</h1>
+
+<p>AI-Based Traffic Route Prediction</p>
+
+<div class="box">
+
+    <input id="from" placeholder="Enter Starting Location">
+
+    <input id="to" placeholder="Enter Destination">
+
+    <select id="vehicle">
+        <option>Car</option>
+        <option>Bike</option>
+        <option>Bus</option>
+        <option>Emergency Vehicle</option>
+    </select>
+
+    <br>
+
+    <button class="start" onclick="startSimulation()">
+        🚗 Start Simulation
+    </button>
+
+    <div id="result">
+        Waiting for simulation...
+    </div>
+
+</div>
+
+<button class="back" onclick="location.href='index.html'">
+    ← Back to Home
+</button>
+
+<script>
+
+function startSimulation() {
+
+    let distance = Math.floor(Math.random() * 15) + 5;
+    let signals = Math.floor(Math.random() * 8) + 2;
+
+    let trafficLevels = ["Low", "Medium", "High"];
+
+    let traffic =
+        trafficLevels[
+            Math.floor(Math.random() * 3)
+        ];
+
+    document.getElementById("result").innerHTML =
+
+        "📍 From: " +
+        document.getElementById("from").value +
+
+        "<br><br>📍 To: " +
+        document.getElementById("to").value +
+
+        "<br><br>🚗 Vehicle: " +
+        document.getElementById("vehicle").value +
+
+        "<br><br>📏 Distance: " +
+        distance + " km" +
+
+        "<br><br>🚦 Total Signals: " +
+        signals +
+
+        "<br><br>🚗 Traffic Level: " +
+        traffic +
+
+        "<br><br>🤖 AI Recommendation: " +
+        "Use the route with lower traffic.";
+}
+
+</script>
+
+<script src="sound.js"></script>
+<script src="language.js"></script>
+
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ta,hi,mr,te,ml,kn',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
