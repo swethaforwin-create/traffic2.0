@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Traffic Diversion</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    background: #0b1736;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    color: #35d07f;
+}
+
+.box {
+    background: #172952;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+input {
+    width: 85%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+}
+
+button {
+    padding: 14px 25px;
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.run {
+    background: #35d07f;
+}
+
+.back {
+    background: #4da3ff;
+    color: white;
+}
+
+#result {
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🔀 Traffic Diversion</h1>
+
+<p>AI finds a less congested route</p>
+
+<div class="box">
+
+    <input
+        id="location"
+        placeholder="Enter Current Location">
+
+    <br>
+
+    <button class="run" onclick="findDiversion()">
+        🤖 Find Better Route
+    </button>
+
+    <div id="result">
+        Waiting for AI analysis...
+    </div>
+
+</div>
+
+<button class="back"
+onclick="location.href='suggestions.html'">
+← Back to Suggestions
+</button>
+
+<script>
+
+function findDiversion() {
+
+    let traffic =
+        Math.floor(Math.random() * 70) + 30;
+
+    let alternative =
+        Math.floor(Math.random() * 30) + 10;
+
+    document.getElementById("result").innerHTML =
+
+        "📍 Location: " +
+        document.getElementById("location").value +
+
+        "<br><br>🚗 Current Traffic: " +
+        traffic + " vehicles" +
+
+        "<br>🔀 Alternative Route Traffic: " +
+        alternative + " vehicles" +
+
+        "<br><br>🤖 AI Recommendation:" +
+
+        "<br>Use the alternative route to reduce congestion." +
+
+        "<br><br>✅ Traffic diversion completed.";
+}
+
+</script>
+
+<script src="sound.js"></script>
+<script src="language.js"></script>
+
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ta,hi,mr,te,ml,kn',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
